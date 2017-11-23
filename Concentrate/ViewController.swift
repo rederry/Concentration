@@ -10,14 +10,31 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    var flipCount = 0 {
+        didSet {
+            flipCoutLable.text = "Flip count: \(flipCount)"
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBOutlet weak var flipCoutLable: UILabel! 
+    
+    @IBOutlet var cardButtons: [UIButton]!
+    var emojis = ["🐶", "🤖", "🤖", "🐶",]
+    
+    @IBAction func touchCard(_ sender: UIButton) {
+        flipCount += 1;
+        let cardNumber = cardButtons.index(of: sender)!;
+        flipCard(on: sender, withEmoji: emojis[cardNumber])
+    }
+    
+    func flipCard(on sender: UIButton, withEmoji emoji: String) {
+        if sender.currentTitle == emoji {
+            sender.setTitle("", for: UIControlState.normal)
+            sender.backgroundColor = UIColor.white
+        } else {
+            sender.setTitle(emoji, for: UIControlState.normal)
+            sender.backgroundColor = UIColor.orange
+        }
     }
 
 
