@@ -12,6 +12,8 @@
 		EE78A9AC1FC5B7C400D9CF18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE78A9AA1FC5B7C400D9CF18 /* Main.storyboard */; };
 		EE78A9AE1FC5B7C400D9CF18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE78A9AD1FC5B7C400D9CF18 /* Assets.xcassets */; };
 		EE78A9B11FC5B7C400D9CF18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE78A9AF1FC5B7C400D9CF18 /* LaunchScreen.storyboard */; };
+		EE78A9B91FC6CDED00D9CF18 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE78A9B81FC6CDED00D9CF18 /* Concentration.swift */; };
+		EE78A9BB1FC6D15000D9CF18 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE78A9BA1FC6D15000D9CF18 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		EE78A9AD1FC5B7C400D9CF18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE78A9B01FC5B7C400D9CF18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE78A9B21FC5B7C400D9CF18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE78A9B81FC6CDED00D9CF18 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
+		EE78A9BA1FC6D15000D9CF18 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,24 @@
 		EE78A9A51FC5B7C400D9CF18 /* Concentrate */ = {
 			isa = PBXGroup;
 			children = (
-				EE78A9A61FC5B7C400D9CF18 /* AppDelegate.swift */,
+				EE78A9BC1FC6D58000D9CF18 /* SupportingFiles */,
 				EE78A9A81FC5B7C400D9CF18 /* ViewController.swift */,
 				EE78A9AA1FC5B7C400D9CF18 /* Main.storyboard */,
-				EE78A9AD1FC5B7C400D9CF18 /* Assets.xcassets */,
-				EE78A9AF1FC5B7C400D9CF18 /* LaunchScreen.storyboard */,
+				EE78A9B81FC6CDED00D9CF18 /* Concentration.swift */,
+				EE78A9BA1FC6D15000D9CF18 /* Card.swift */,
 				EE78A9B21FC5B7C400D9CF18 /* Info.plist */,
 			);
 			path = Concentrate;
+			sourceTree = "<group>";
+		};
+		EE78A9BC1FC6D58000D9CF18 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				EE78A9A61FC5B7C400D9CF18 /* AppDelegate.swift */,
+				EE78A9AD1FC5B7C400D9CF18 /* Assets.xcassets */,
+				EE78A9AF1FC5B7C400D9CF18 /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +152,8 @@
 			files = (
 				EE78A9A91FC5B7C400D9CF18 /* ViewController.swift in Sources */,
 				EE78A9A71FC5B7C400D9CF18 /* AppDelegate.swift in Sources */,
+				EE78A9B91FC6CDED00D9CF18 /* Concentration.swift in Sources */,
+				EE78A9BB1FC6D15000D9CF18 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
