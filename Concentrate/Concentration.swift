@@ -10,17 +10,17 @@ import Foundation
 
 class Concentration {
     var cards = [Card]()
-    var indexOfOnlyOneFaceUp : Int = -1
+    var indexOfOnlyOneFaceUp : Int?
     
     func choseCard(at index: Int) {
         if !cards[index].isMatched, !cards[index].isFaceUp {
-            if indexOfOnlyOneFaceUp != -1, index != indexOfOnlyOneFaceUp {
+            if let matchIndex = indexOfOnlyOneFaceUp, index != matchIndex{
                 // match with the only one face up card
-                if cards[index].identifier == cards[indexOfOnlyOneFaceUp].identifier {
+                if cards[index].identifier == cards[matchIndex].identifier {
                     cards[index].isMatched = true
-                    cards[indexOfOnlyOneFaceUp].isMatched = true
+                    cards[matchIndex].isMatched = true
                 }
-                indexOfOnlyOneFaceUp = -1
+                indexOfOnlyOneFaceUp = nil
             } else {
                 // face down other card
                 for i in cards.indices {
