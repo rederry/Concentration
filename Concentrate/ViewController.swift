@@ -22,6 +22,14 @@ class ViewController: UIViewController {
         return (cardButtons.count + 1) / 2
     }
     
+    @IBAction private func newGame(_ sender: UIButton) {
+        game.startNewGame()
+        flipCount = 0
+        restoreEmojiDict()
+        choseRandomEmojiTheme()
+        updateViewFromModel()
+    }
+    
     @IBOutlet private weak var flipCoutLable: UILabel! // Outlets usually private
     
     @IBOutlet private var cardButtons: [UIButton]!
@@ -36,8 +44,28 @@ class ViewController: UIViewController {
         }
     }
 
-    private var emojis = ["🐶", "🤖", "🐸", "🦄", "🐵", "🐼", "🐙", "🦊", "🐷", "🐻", "🐰", "🐯", "🦁"]
+    private var animalEmojis = ["🐶", "🐹", "🐰", "🦊", "🐻", "🐼", "🐯", "🐷", "🦄", "🦆"]
+    private var faceEmojis = ["😄", "😂", "☺️", "😇", "😍", "😘", "🤪", "😱", "😡", "😎"]
+    private var sportEmojis = ["⚽️", "🏀", "🏈", "⚾️", "🎾", "🏐", "🎱", "🏓", "🏸", "🏒"]
+    private var fruitEmojis = ["🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🍈"]
+    private var toolEmojis = ["⌚️", "📱", "💻", "⌨️", "🖥", "🖨", "🖱", "🖲", "🕹", "💣"]
+    private var flagEmojis = ["🇦🇷", "🇦🇪", "🇦🇼", "🇴🇲", "🇦🇿", "🇪🇬", "🇮🇪", "🇦🇩", "🇨🇳", "🇬🇧"]
+    private lazy var emojiThemes = [animalEmojis, faceEmojis, sportEmojis, fruitEmojis, toolEmojis, flagEmojis]
+    
+    private lazy var emojis = emojiThemes[emojiThemes.count.arc4random]
+    
+    private func choseRandomEmojiTheme() {
+        emojis = emojiThemes[emojiThemes.count.arc4random]
+    }
+    
     private var emojiDict = [Int:String]()
+    
+    private func restoreEmojiDict() {
+        for val in emojiDict.values {
+            emojis.append(val)
+        }
+        emojiDict = [Int:String]()
+    }
     
     private func emoji(for card: Card) -> String {
         if emojiDict[card.identifier] == nil && emojis.count > 0 {
