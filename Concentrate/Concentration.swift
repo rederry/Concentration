@@ -8,9 +8,28 @@
 
 import Foundation
 
+
 class Concentration {
+    
     var cards = [Card]()
-    var indexOfOnlyOneFaceUp : Int?
+    private var indexOfOnlyOneFaceUp : Int? {
+        get {
+            var foundIndex :Int? // default nil
+            for index in cards.indices {
+                if cards[index].isFaceUp && foundIndex == nil {
+                    foundIndex = index
+                } else if cards[index].isFaceUp && foundIndex != nil {
+                    return nil
+                }
+            }
+            return foundIndex
+        }
+        set {
+            for index in cards.indices {
+                cards[index].isFaceUp = (index == newValue)
+            }
+        }
+    }
     
     func choseCard(at index: Int) {
         if !cards[index].isMatched, !cards[index].isFaceUp {
@@ -20,15 +39,11 @@ class Concentration {
                     cards[index].isMatched = true
                     cards[matchIndex].isMatched = true
                 }
-                indexOfOnlyOneFaceUp = nil
+                cards[index].isFaceUp = true
             } else {
                 // face down other card
-                for i in cards.indices {
-                    cards[i].isFaceUp = false
-                }
                 indexOfOnlyOneFaceUp = index
             }
-            cards[index].isFaceUp = true
         }
     }
     
@@ -40,8 +55,7 @@ class Concentration {
         shuffCards()
     }
     
-    func shuffCards() {
-        //Shuff cards
+    private func shuffCards() {
         for index in cards.indices {
             let randomIndex = Int(arc4random_uniform(UInt32(cards.count)))
             cards.swapAt(randomIndex, index)

@@ -11,12 +11,12 @@ import Foundation
 struct Card {
     var isFaceUp = false
     var isMatched = false
-    var identifier: Int
-    static var nextId = 0
+    var identifier: Int // Usually private
+    private static var identifierFactory = 0
     
-    static func nextIdentifier() -> Int{
-        Card.nextId = Card.nextId + 1
-        return Card.nextId
+    private static func nextIdentifier() -> Int{
+        Card.identifierFactory = Card.identifierFactory + 1
+        return Card.identifierFactory
     }
     
     init() {

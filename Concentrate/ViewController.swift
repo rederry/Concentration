@@ -10,19 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    lazy var game = Concentration(pairOfCards: (cardButtons.count + 1) / 2)
+    private lazy var game = Concentration(pairOfCards: pairOfCards) // UIViewController's model usually public
 
-    var flipCount = 0 {
+    private(set) var flipCount = 0 {
         didSet {
             flipCoutLable.text = "Flip count: \(flipCount)"
         }
     }
     
-    @IBOutlet weak var flipCoutLable: UILabel! 
+    private var pairOfCards: Int { // Already read-only
+        return (cardButtons.count + 1) / 2
+    }
     
-    @IBOutlet var cardButtons: [UIButton]!
+    @IBOutlet private weak var flipCoutLable: UILabel! // Outlets usually private
     
-    @IBAction func touchCard(_ sender: UIButton) {
+    @IBOutlet private var cardButtons: [UIButton]!
+    
+    @IBAction private func touchCard(_ sender: UIButton) {  // Internal implement
         flipCount += 1;
         if let cardNumber = cardButtons.index(of: sender) {
             game.choseCard(at: cardNumber)
@@ -32,18 +36,18 @@ class ViewController: UIViewController {
         }
     }
 
-    var emojis = ["🐶", "🤖", "🐸", "🦄", "🐵", "🐼", "🐙", "🦊", "🐷", "🐻", "🐰", "🐯", "🦁"]
-    var emojiDict = [Int:String]()
+    private var emojis = ["🐶", "🤖", "🐸", "🦄", "🐵", "🐼", "🐙", "🦊", "🐷", "🐻", "🐰", "🐯", "🦁"]
+    private var emojiDict = [Int:String]()
     
-    func emoji(for card: Card) -> String {
+    private func emoji(for card: Card) -> String {
         if emojiDict[card.identifier] == nil && emojis.count > 0 {
-            emojiDict[card.identifier] = emojis.remove(at: Int(arc4random_uniform((UInt32(emojis.count)))))
+            emojiDict[card.identifier] = emojis.remove(at: emojis.count.arc4random)
         }
         return emojiDict[card.identifier] ?? "?"
     }
     
     //Handle view and model
-    func updateViewFromModel() {
+    private func updateViewFromModel() {
         for index in cardButtons.indices {
             let button = cardButtons[index]
             let card = game.cards[index]
@@ -58,3 +62,14 @@ class ViewController: UIViewController {
     }
 }
 
+extension Int {
+    var arc4random: Int {
+        if self > 0 {
+            return Int(arc4random_uniform((UInt32(self))))
+        } else if self < 0 {
+            return -Int(arc4random_uniform((UInt32(abs(self)))))
+        } else {
+            return 0
+        }
+    }
+}
