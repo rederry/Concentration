@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     @IBAction private func newGame(_ sender: UIButton) {
         game.startNewGame()
         resetEmojiDict()
-        choseRandomEmojiTheme()
+        choseRandomTheme()
         updateViewFromModel()
     }
     @IBOutlet private weak var newGameButton: UIButton!
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     private var emojis = [String]()
     
     override func viewDidLoad() {
-        choseRandomEmojiTheme()
+        choseRandomTheme()
     }
     
     private var tintColor: UIColor {
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         }
     }
     
-    private func choseRandomEmojiTheme() {
+    private func choseRandomTheme() {
         let (emojiSet, bgColor, tintColor) = emojiThemes[emojiThemes.count.arc4random]
         emojis = emojiSet
         view.backgroundColor = bgColor

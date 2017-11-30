@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class Concentration {
     
     var cards = [Card]()
@@ -45,7 +44,10 @@ class Concentration {
         flipCount = 0
         score = 0
         mismatchedCards = Set<Int>()
+        lastMatchTime = Date()
     }
+    
+    private var lastMatchTime = Date()
     
     func choseCard(at index: Int) {
         if !cards[index].isMatched, !cards[index].isFaceUp {
@@ -55,7 +57,20 @@ class Concentration {
                     // matched
                     cards[index].isMatched = true
                     cards[matchIndex].isMatched = true
-                    score += 2
+                    let time = Date().timeIntervalSince(lastMatchTime)
+                    var bonus = 0
+                    switch time {
+                    case 0..<3:
+                         bonus = 5
+                    case 3..<5:
+                         bonus = 3
+                    case 5..<10:
+                         bonus = 1
+                    default:
+                         bonus = 0
+                    }
+                    score += 2 + bonus
+                    lastMatchTime = Date()
                 } else { // mismatch update score
                     if (mismatchedCards.contains(cards[index].identifier)) {
                         score -= 1
