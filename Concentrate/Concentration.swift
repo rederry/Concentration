@@ -34,6 +34,7 @@ class Concentration {
     
     private(set) var flipCount = 0
     private(set) var score = 0
+    private var mismatchedCards = Set<Int>()
     
     func startNewGame() {
         for index in cards.indices {
@@ -73,8 +74,6 @@ class Concentration {
             flipCount += 1
         }
     }
-    
-    private var mismatchedCards = Set<Int>()
     
     init(pairOfCards: Int) {
         for _ in 0..<pairOfCards {

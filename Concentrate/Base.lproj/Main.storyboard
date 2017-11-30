@@ -213,6 +213,7 @@
                     </view>
                     <connections>
                         <outlet property="flipCoutLable" destination="dnw-Fn-K8h" id="2D9-SI-cSh"/>
+                        <outlet property="newGameButton" destination="O35-FR-emh" id="fp3-0g-a4s"/>
                         <outlet property="scoreLable" destination="EzW-XM-hHz" id="nrb-Mm-bvs"/>
                         <outletCollection property="cardButtons" destination="CYH-zo-5QS" collectionClass="NSMutableArray" id="Vgp-jt-L2M"/>
                         <outletCollection property="cardButtons" destination="yEW-O7-cEE" collectionClass="NSMutableArray" id="Zfb-XF-n5r"/>
