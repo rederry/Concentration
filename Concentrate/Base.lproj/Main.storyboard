@@ -179,8 +179,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O35-FR-emh">
-                                <rect key="frame" x="123" y="677" width="129" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <rect key="frame" x="120" y="678" width="135" height="44"/>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="27"/>
                                 <state key="normal" title="New Game">
                                     <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -188,14 +188,23 @@
                                     <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qgk-Yg-hxD"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EzW-XM-hHz">
+                                <rect key="frame" x="16" y="389" width="120" height="32.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="EzW-XM-hHz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Bjp-eV-Td6"/>
                             <constraint firstItem="O35-FR-emh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Dr6-qU-RtC"/>
                             <constraint firstItem="dnw-Fn-K8h" firstAttribute="top" secondItem="O35-FR-emh" secondAttribute="bottom" constant="23" id="IkM-mk-wwN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="EzW-XM-hHz" secondAttribute="trailing" constant="239" id="Lje-MM-XgL"/>
                             <constraint firstItem="zpx-fd-28g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="SyR-gD-ovv"/>
                             <constraint firstItem="dnw-Fn-K8h" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TCv-oT-dQc"/>
                             <constraint firstItem="O35-FR-emh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zpx-fd-28g" secondAttribute="bottom" constant="8" symbolic="YES" id="aNg-we-cQc"/>
+                            <constraint firstItem="EzW-XM-hHz" firstAttribute="top" secondItem="zpx-fd-28g" secondAttribute="bottom" constant="17" id="bZa-Qe-wCE"/>
                             <constraint firstItem="zpx-fd-28g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="djJ-rP-9WB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zpx-fd-28g" secondAttribute="trailing" constant="16" id="iDl-Rm-g4e"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dnw-Fn-K8h" secondAttribute="bottom" constant="0.66666666666662877" id="wG3-Ae-Gdq"/>
@@ -204,6 +213,7 @@
                     </view>
                     <connections>
                         <outlet property="flipCoutLable" destination="dnw-Fn-K8h" id="2D9-SI-cSh"/>
+                        <outlet property="scoreLable" destination="EzW-XM-hHz" id="nrb-Mm-bvs"/>
                         <outletCollection property="cardButtons" destination="CYH-zo-5QS" collectionClass="NSMutableArray" id="Vgp-jt-L2M"/>
                         <outletCollection property="cardButtons" destination="yEW-O7-cEE" collectionClass="NSMutableArray" id="Zfb-XF-n5r"/>
                         <outletCollection property="cardButtons" destination="KbX-3v-JJu" collectionClass="NSMutableArray" id="4Sn-6n-Td7"/>

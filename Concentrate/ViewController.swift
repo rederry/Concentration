@@ -11,12 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     
     private lazy var game = Concentration(pairOfCards: pairOfCards) // UIViewController's model usually public
-
-    private(set) var flipCount = 0 {
-        didSet {
-            flipCoutLable.text = "Flip count: \(flipCount)"
-        }
-    }
     
     private var pairOfCards: Int { // Already read-only
         return (cardButtons.count + 1) / 2
@@ -24,7 +18,6 @@ class ViewController: UIViewController {
     
     @IBAction private func newGame(_ sender: UIButton) {
         game.startNewGame()
-        flipCount = 0
         restoreEmojiDict()
         choseRandomEmojiTheme()
         updateViewFromModel()
@@ -32,10 +25,11 @@ class ViewController: UIViewController {
     
     @IBOutlet private weak var flipCoutLable: UILabel! // Outlets usually private
     
+    @IBOutlet private weak var scoreLable: UILabel!
+    
     @IBOutlet private var cardButtons: [UIButton]!
     
     @IBAction private func touchCard(_ sender: UIButton) {  // Internal implement
-        flipCount += 1;
         if let cardNumber = cardButtons.index(of: sender) {
             game.choseCard(at: cardNumber)
             updateViewFromModel()
@@ -74,7 +68,7 @@ class ViewController: UIViewController {
         return emojiDict[card.identifier] ?? "?"
     }
     
-    //Handle view and model
+    //Handle view from model
     private func updateViewFromModel() {
         for index in cardButtons.indices {
             let button = cardButtons[index]
@@ -87,6 +81,8 @@ class ViewController: UIViewController {
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
             }
         }
+        flipCoutLable.text = "Flip count: \(game.flipCount)" // Set flipCountLable and score
+        scoreLable.text = "Score: \(game.score)"
     }
 }
 
