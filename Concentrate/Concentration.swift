@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Concentration {
+struct Concentration {
     
     var cards = [Card]()
     
@@ -35,7 +35,7 @@ class Concentration {
     private(set) var score = 0
     private var mismatchedCards = Set<Int>()
     
-    func startNewGame() {
+    mutating func startNewGame() {
         for index in cards.indices {
             cards[index].isFaceUp = false;
             cards[index].isMatched = false;
@@ -49,7 +49,7 @@ class Concentration {
     
     private var lastMatchTime = Date()
     
-    func choseCard(at index: Int) {
+    mutating func choseCard(at index: Int) {
         if !cards[index].isMatched, !cards[index].isFaceUp {
             if let matchIndex = indexOfOnlyOneFaceUp, index != matchIndex{
                 // match with the only one face up card
@@ -98,7 +98,7 @@ class Concentration {
         shuffCards()
     }
     
-    private func shuffCards() {
+    private mutating func shuffCards() {
         for index in cards.indices {
             let randomIndex = Int(arc4random_uniform(UInt32(cards.count)))
             cards.swapAt(randomIndex, index)
