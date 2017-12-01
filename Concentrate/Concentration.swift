@@ -14,15 +14,23 @@ struct Concentration {
     
     private var indexOfOnlyOneFaceUp : Int? {
         get {
-            var foundIndex :Int? // default nil
-            for index in cards.indices {
-                if cards[index].isFaceUp && foundIndex == nil {
-                    foundIndex = index
-                } else if cards[index].isFaceUp && foundIndex != nil {
-                    return nil
-                }
-            }
-            return foundIndex
+            return cards.indices.filter { cards[$0].isFaceUp }.oneAndOnly
+            
+//            let faceUpIndices = cards.indices.filter { cards[$0].isFaceUp }
+//            return faceUpIndices.count == 1 ? faceUpIndices.first : nil
+            
+//            let filtedCards = cards.filter{ $0.isFaceUp }
+//            return (filtedCards.count == 1) ? cards.index(of: filtedCards.first!) : nil
+            
+//            var foundIndex :Int? // default nil
+//            for index in cards.indices {
+//                if cards[index].isFaceUp && foundIndex == nil {
+//                    foundIndex = index
+//                } else if cards[index].isFaceUp && foundIndex != nil {
+//                    return nil
+//                }
+//            }
+//            return foundIndex
         }
         set {
             for index in cards.indices {
@@ -61,13 +69,13 @@ struct Concentration {
                     var bonus = 0
                     switch time {
                     case 0..<3:
-                         bonus = 5
+                         bonus = 2
                     case 3..<5:
-                         bonus = 3
-                    case 5..<10:
                          bonus = 1
-                    default:
+                    case 5..<10:
                          bonus = 0
+                    default:
+                         bonus = -1
                     }
                     score += 2 + bonus
                     lastMatchTime = Date()
@@ -103,5 +111,11 @@ struct Concentration {
             let randomIndex = Int(arc4random_uniform(UInt32(cards.count)))
             cards.swapAt(randomIndex, index)
         }
+    }
+}
+
+extension Collection {
+    var oneAndOnly: Element? {
+        return self.count == 1 ? self.first : nil
     }
 }
