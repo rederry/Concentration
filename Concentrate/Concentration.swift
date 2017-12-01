@@ -33,7 +33,7 @@ struct Concentration {
     
     private(set) var flipCount = 0
     private(set) var score = 0
-    private var mismatchedCards = Set<Int>()
+    private var mismatchedCards = Set<Card>()
     
     mutating func startNewGame() {
         for index in cards.indices {
@@ -43,7 +43,7 @@ struct Concentration {
         shuffCards()
         flipCount = 0
         score = 0
-        mismatchedCards = Set<Int>()
+        mismatchedCards = Set<Card>()
         lastMatchTime = Date()
     }
     
@@ -53,7 +53,7 @@ struct Concentration {
         if !cards[index].isMatched, !cards[index].isFaceUp {
             if let matchIndex = indexOfOnlyOneFaceUp, index != matchIndex{
                 // match with the only one face up card
-                if cards[index].identifier == cards[matchIndex].identifier {
+                if cards[index] == cards[matchIndex] {
                     // matched
                     cards[index].isMatched = true
                     cards[matchIndex].isMatched = true
@@ -72,14 +72,14 @@ struct Concentration {
                     score += 2 + bonus
                     lastMatchTime = Date()
                 } else { // mismatch update score
-                    if (mismatchedCards.contains(cards[index].identifier)) {
+                    if (mismatchedCards.contains(cards[index])) {
                         score -= 1
                     }
-                    if (mismatchedCards.contains(cards[matchIndex].identifier)) {
+                    if (mismatchedCards.contains(cards[matchIndex])) {
                         score -= 1
                     }
-                    mismatchedCards.insert(cards[index].identifier)
-                    mismatchedCards.insert(cards[matchIndex].identifier)
+                    mismatchedCards.insert(cards[index])
+                    mismatchedCards.insert(cards[matchIndex])
                 }
                 cards[index].isFaceUp = true
             } else {
