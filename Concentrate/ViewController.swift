@@ -16,15 +16,19 @@ class ViewController: UIViewController {
         return (cardButtons.count + 1) / 2
     }
     
+    // TODO: Refactor
     @IBAction private func newGame(_ sender: UIButton) {
-        game.startNewGame()
-        resetEmojiDict()
-        choseRandomTheme()
+        game.startNewGame() // Change model
+        choseRandomTheme()  // Change view
         updateViewFromModel()
     }
     @IBOutlet private weak var newGameButton: UIButton!
     
-    @IBOutlet private weak var flipCoutLable: UILabel! // Outlets usually private
+    @IBOutlet private weak var flipCoutLable: UILabel! { // Outlets usually private
+        didSet { // Set by UIViewController
+            updateFlipCountLable()
+        }
+    }
     
     @IBOutlet private weak var scoreLable: UILabel!
     
@@ -68,6 +72,7 @@ class ViewController: UIViewController {
     }
     
     private func choseRandomTheme() {
+        resetEmojiDict()
         let (emojiSet, bgColor, tintColor) = emojiThemes[emojiThemes.count.arc4random]
         emojis = emojiSet
         view.backgroundColor = bgColor
@@ -104,8 +109,16 @@ class ViewController: UIViewController {
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : tintColor
             }
         }
-        flipCoutLable.text = "Flip count: \(game.flipCount)" // Set flipCountLable and score
-        scoreLable.text = "Score: \(game.score)"        
+        updateFlipCountLable()
+        scoreLable.text = "Score: \(game.score)"
+    }
+    
+    private func updateFlipCountLable() {
+        let attrs: [NSAttributedStringKey : Any] = [
+            NSAttributedStringKey.strokeWidth : 5
+        ]
+        let attrsText = NSAttributedString(string: "Flip count: \(game.flipCount)", attributes: attrs)
+        flipCoutLable.attributedText = attrsText
     }
 }
 
