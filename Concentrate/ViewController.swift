@@ -39,15 +39,15 @@ class ViewController: UIViewController {
         }
     }
 
-    private var animalTheme = (["🐶", "🐹", "🐰", "🦊", "🐻", "🐼", "🐯", "🐷", "🦄", "🦆"], #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1), #colorLiteral(red: 0, green: 0.9914394021, blue: 1, alpha: 1))
-    private var faceTheme = (["😄", "😂", "☺️", "😇", "😍", "😘", "🤪", "😱", "😡", "😎"], #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1))
-    private var sportTheme = (["⚽️", "🏀", "🏈", "⚾️", "🎾", "🏐", "🎱", "🏓", "🏸", "🏒"], #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1), #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1))
-    private var fruitTheme = (["🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🍈"], #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), #colorLiteral(red: 0.9995340705, green: 0.988355577, blue: 0.4726552367, alpha: 1))
-    private var toolTheme = (["⌚️", "📱", "💻", "⌨️", "🖥", "🖨", "🖱", "🖲", "🕹", "💣"], #colorLiteral(red: 0.5704585314, green: 0.5704723597, blue: 0.5704649091, alpha: 1), #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1))
-    private var halloweenTheme = (["👻", "🎃", "🍬", "👹", "💀", "😈", "🤢", "💩", "👾", "🙀"], #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1))
+    private var animalTheme = ("🐶🐹🐰🦊🐻🐼🐯🐷🦄🦆", #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1), #colorLiteral(red: 0, green: 0.9914394021, blue: 1, alpha: 1))
+    private var faceTheme = ("😄😂☺️😇😍😘🤪😱😡😎", #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1))
+    private var sportTheme = ("⚽️🏀🏈⚾️🎾🏐🎱🏓🏸🏒", #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1), #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1))
+    private var fruitTheme = ("🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈", #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), #colorLiteral(red: 0.9995340705, green: 0.988355577, blue: 0.4726552367, alpha: 1))
+    private var toolTheme = ("⌚️📱💻⌨️🖥🖨🖱🖲🕹💣", #colorLiteral(red: 0.5704585314, green: 0.5704723597, blue: 0.5704649091, alpha: 1), #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1))
+    private var halloweenTheme = ("👻🎃🍬👹💀😈🤢💩👾🙀", #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1))
     private lazy var emojiThemes = [animalTheme, faceTheme, sportTheme, fruitTheme, toolTheme, halloweenTheme]
     
-    private var emojis = [String]()
+    private var emojis = String()
     
     override func viewDidLoad() {
         choseRandomTheme()
@@ -85,7 +85,8 @@ class ViewController: UIViewController {
     
     private func emoji(for card: Card) -> String {
         if emojiDict[card] == nil && emojis.count > 0 {
-            emojiDict[card] = emojis.remove(at: emojis.count.arc4random)
+            let stringIndexOffset = emojis.index(emojis.startIndex, offsetBy: emojis.count.arc4random)
+            emojiDict[card] = String(emojis.remove(at: stringIndexOffset))
         }
         return emojiDict[card] ?? "?"
     }
