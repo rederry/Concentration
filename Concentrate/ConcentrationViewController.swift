@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ConcentrationViewController: UIViewController {
     
     private lazy var game = Concentration(pairOfCards: pairOfCards) // UIViewController's model usually public
     
@@ -50,11 +50,39 @@ class ViewController: UIViewController {
     private var toolTheme = ("⌚️📱💻⌨️🖥🖨🖱🖲🕹💣", #colorLiteral(red: 0.5704585314, green: 0.5704723597, blue: 0.5704649091, alpha: 1), #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1))
     private var halloweenTheme = ("👻🎃🍬👹💀😈🤢💩👾🙀", #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1))
     private lazy var emojiThemes = [animalTheme, faceTheme, sportTheme, fruitTheme, toolTheme, halloweenTheme]
+    private lazy var emojiThemesDict = [
+        "animal" : animalTheme,
+        "face" : faceTheme,
+        "sport" : sportTheme,
+        "fruit" : fruitTheme,
+        "tool" : toolTheme,
+        "halloween" : halloweenTheme
+    ]
     
     private var emojis = String()
     
-    override func viewDidLoad() {
-        choseRandomTheme()
+//    override func viewDidLoad() {
+//        choseRandomTheme()
+//    }
+    
+    func choseTheme(with themeName: String) {
+        resetEmojiDict()
+        if let theme = emojiThemesDict[themeName] {
+            let (emojiSet, bgColor, tintColor) = theme
+            emojis = emojiSet
+            view.backgroundColor = bgColor
+            self.tintColor = tintColor
+        } else {
+            choseRandomTheme()
+        }
+    }
+    
+    private func choseRandomTheme() {
+        resetEmojiDict()
+        let (emojiSet, bgColor, tintColor) = emojiThemes[emojiThemes.count.arc4random]
+        emojis = emojiSet
+        view.backgroundColor = bgColor
+        self.tintColor = tintColor
     }
     
     private var tintColor: UIColor {
@@ -69,14 +97,6 @@ class ViewController: UIViewController {
             flipCoutLable.textColor = newValue
             newGameButton.setTitleColor(newValue, for: UIControlState.normal)
         }
-    }
-    
-    private func choseRandomTheme() {
-        resetEmojiDict()
-        let (emojiSet, bgColor, tintColor) = emojiThemes[emojiThemes.count.arc4random]
-        emojis = emojiSet
-        view.backgroundColor = bgColor
-        self.tintColor = tintColor
     }
     
     private var emojiDict = [Card:String]()
