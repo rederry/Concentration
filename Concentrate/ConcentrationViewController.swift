@@ -19,7 +19,6 @@ class ConcentrationViewController: UIViewController {
     // TODO: Refactor
     @IBAction private func newGame(_ sender: UIButton) {
         game.startNewGame() // Change model
-        choseRandomTheme()  // Change view
         updateViewFromModel()
     }
     @IBOutlet private weak var newGameButton: UIButton!
@@ -60,10 +59,6 @@ class ConcentrationViewController: UIViewController {
     ]
     
     private var emojis = String()
-    
-//    override func viewDidLoad() {
-//        choseRandomTheme()
-//    }
     
     func choseTheme(with themeName: String) {
         resetEmojiDict()
