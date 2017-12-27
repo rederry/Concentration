@@ -19,12 +19,22 @@ class ConcentrationThemeChoserViewController: UIViewController {
         "halloween" : ("👻🎃🍬👹💀😈🤢💩👾🙀", #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1))
     ]
     
-    // MARK: - Navigation
+    private var splitDetailViewController: ConcentrationViewController? {
+        return splitViewController?.viewControllers.last as? ConcentrationViewController
+    }
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    @IBAction func choseTheme(_ sender: Any) {
+        if let cvc = splitDetailViewController {
+            if let themeName = (sender as? UIButton)?.currentTitle {
+                cvc.theme = emojiThemes[themeName]
+            }
+        } else {
+            performSegue(withIdentifier: "Chose Theme", sender: sender)            
+        }
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         if segue.identifier == "Chose Theme" {
             if let themeName = (sender as? UIButton)?.currentTitle {
                 if let desVC = segue.destination as? ConcentrationViewController {

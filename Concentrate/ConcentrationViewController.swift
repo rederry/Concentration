@@ -16,7 +16,6 @@ class ConcentrationViewController: UIViewController {
         return (cardButtons.count + 1) / 2
     }
     
-    // TODO: Refactor
     @IBAction private func newGame(_ sender: UIButton) {
         game.startNewGame() // Change model
         updateViewFromModel()
@@ -42,6 +41,10 @@ class ConcentrationViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        theme = ("👻🎃🍬👹💀😈🤢💩👾🙀", #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1))
+    }
+    
     var theme: (String, UIColor, UIColor)? {
         didSet {
             resetEmojiDict()
@@ -50,6 +53,7 @@ class ConcentrationViewController: UIViewController {
                 // MARK: - !!!!!! prepare(for segue) use viewController.view will set all outlets!(don't know why)
                 view.backgroundColor = bgColor
                 self.tintColor = tintColor
+                updateViewFromModel()
             }
         }
     }

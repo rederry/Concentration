@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yac-gb-7JX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VFl-1T-7Ha">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Concentration Theme Choser View Controller-->
+        <!--Chose theme-->
         <scene sceneID="viR-aH-CgQ">
             <objects>
                 <viewController id="xY5-gN-V2Q" customClass="ConcentrationThemeChoserViewController" customModule="Concentrate" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,89 +20,98 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="wHk-19-y6g">
-                                <rect key="frame" x="50" y="239" width="275" height="388"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="wHk-19-y6g">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4e-es-VNf">
-                                        <rect key="frame" x="0.0" y="0.0" width="275" height="61.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="111.66666666666667"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="animal">
                                             <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Chose Theme" id="OzH-OA-VeE"/>
+                                            <action selector="choseTheme:" destination="xY5-gN-V2Q" eventType="touchUpInside" id="huF-oz-dWG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkQ-a8-brX">
-                                        <rect key="frame" x="0.0" y="65.333333333333314" width="275" height="61.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="115.66666666666666" width="375" height="111.33333333333334"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="face">
                                             <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Chose Theme" id="ac9-ij-eFm"/>
+                                            <action selector="choseTheme:" destination="xY5-gN-V2Q" eventType="touchUpInside" id="5sV-Zl-7y4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Mv-2y-Fiu">
-                                        <rect key="frame" x="0.0" y="130.66666666666669" width="275" height="61.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="231" width="375" height="112"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="sport">
                                             <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Chose Theme" id="k76-V4-p9H"/>
+                                            <action selector="choseTheme:" destination="xY5-gN-V2Q" eventType="touchUpInside" id="CbW-re-f8V"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBV-82-2tr">
-                                        <rect key="frame" x="0.0" y="196" width="275" height="61.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="347" width="375" height="111.66666666666669"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="fruit">
                                             <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Chose Theme" id="9cD-wb-sGP"/>
+                                            <action selector="choseTheme:" destination="xY5-gN-V2Q" eventType="touchUpInside" id="bXG-Y0-jGv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQn-uN-lBd">
-                                        <rect key="frame" x="0.0" y="261.33333333333331" width="275" height="61.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="462.66666666666663" width="375" height="112"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="tool">
                                             <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Chose Theme" id="q8z-QD-JXw"/>
+                                            <action selector="choseTheme:" destination="xY5-gN-V2Q" eventType="touchUpInside" id="FUn-vH-RNh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kY-SR-qqL">
-                                        <rect key="frame" x="0.0" y="326.66666666666663" width="275" height="61.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="578.66666666666663" width="375" height="111.33333333333337"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="halloween">
                                             <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Chose Theme" id="cQU-Qs-Hdp"/>
+                                            <action selector="choseTheme:" destination="xY5-gN-V2Q" eventType="touchUpInside" id="LxS-jJ-F14"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="5kY-SR-qqL" firstAttribute="height" secondItem="VQn-uN-lBd" secondAttribute="height" id="9Fu-Ub-X19"/>
+                                    <constraint firstItem="f4e-es-VNf" firstAttribute="height" secondItem="wkQ-a8-brX" secondAttribute="height" id="XYW-1q-Ouj"/>
+                                    <constraint firstItem="wkQ-a8-brX" firstAttribute="height" secondItem="9Mv-2y-Fiu" secondAttribute="height" id="c49-h8-a9x"/>
+                                    <constraint firstItem="9Mv-2y-Fiu" firstAttribute="height" secondItem="wBV-82-2tr" secondAttribute="height" id="fGo-wX-QdN"/>
+                                    <constraint firstItem="wBV-82-2tr" firstAttribute="height" secondItem="VQn-uN-lBd" secondAttribute="height" id="v8q-2l-BSq"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ebd-bo-TdO" firstAttribute="trailing" secondItem="wHk-19-y6g" secondAttribute="trailing" constant="50" id="3zX-dz-Kdf"/>
-                            <constraint firstItem="wHk-19-y6g" firstAttribute="centerX" secondItem="Ebd-bo-TdO" secondAttribute="centerX" id="5Zf-aj-Uml"/>
-                            <constraint firstItem="wHk-19-y6g" firstAttribute="centerY" secondItem="Ebd-bo-TdO" secondAttribute="centerY" id="EhP-LA-it5"/>
-                            <constraint firstItem="wHk-19-y6g" firstAttribute="leading" secondItem="Ebd-bo-TdO" secondAttribute="leading" constant="50" id="Gbq-Rw-NxD"/>
-                            <constraint firstItem="wHk-19-y6g" firstAttribute="top" secondItem="Ebd-bo-TdO" secondAttribute="top" constant="151" id="xMr-lj-4LC"/>
+                            <constraint firstItem="wHk-19-y6g" firstAttribute="centerX" secondItem="Ebd-bo-TdO" secondAttribute="centerX" id="7t5-6H-XeW"/>
+                            <constraint firstItem="wHk-19-y6g" firstAttribute="centerY" secondItem="Ebd-bo-TdO" secondAttribute="centerY" id="Mwf-Hn-Acb"/>
+                            <constraint firstItem="wHk-19-y6g" firstAttribute="width" secondItem="alu-I0-QY5" secondAttribute="width" id="Xfq-bZ-9MF"/>
+                            <constraint firstItem="wHk-19-y6g" firstAttribute="height" secondItem="alu-I0-QY5" secondAttribute="height" multiplier="0.85" id="yGP-FW-fbb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ebd-bo-TdO"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Q8l-gP-JVx"/>
+                    <navigationItem key="navigationItem" title="Chose theme" id="Q8l-gP-JVx"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Chose Theme" id="juW-to-UWy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIf-6U-g2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -285,7 +295,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EzW-XM-hHz">
-                                <rect key="frame" x="16" y="433" width="120" height="32.333333333333314"/>
+                                <rect key="frame" x="16" y="436" width="120" height="32.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -296,13 +306,17 @@
                             <constraint firstItem="EzW-XM-hHz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Bjp-eV-Td6"/>
                             <constraint firstItem="O35-FR-emh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Dr6-qU-RtC"/>
                             <constraint firstItem="dnw-Fn-K8h" firstAttribute="top" secondItem="O35-FR-emh" secondAttribute="bottom" constant="23" id="IkM-mk-wwN"/>
+                            <constraint firstItem="zpx-fd-28g" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-100" id="JGl-A6-ks6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="EzW-XM-hHz" secondAttribute="trailing" constant="239" id="Lje-MM-XgL"/>
                             <constraint firstItem="zpx-fd-28g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="SyR-gD-ovv"/>
                             <constraint firstItem="dnw-Fn-K8h" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TCv-oT-dQc"/>
-                            <constraint firstItem="O35-FR-emh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zpx-fd-28g" secondAttribute="bottom" constant="8" symbolic="YES" id="aNg-we-cQc"/>
-                            <constraint firstItem="EzW-XM-hHz" firstAttribute="top" secondItem="zpx-fd-28g" secondAttribute="bottom" constant="17" id="bZa-Qe-wCE"/>
-                            <constraint firstItem="zpx-fd-28g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="djJ-rP-9WB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zpx-fd-28g" secondAttribute="trailing" constant="16" id="iDl-Rm-g4e"/>
+                            <constraint firstItem="EzW-XM-hHz" firstAttribute="top" secondItem="zpx-fd-28g" secondAttribute="bottom" constant="20" id="bZa-Qe-wCE"/>
+                            <constraint firstItem="zpx-fd-28g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="djJ-rP-9WB">
+                                <variation key="heightClass=compact" constant="100"/>
+                            </constraint>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zpx-fd-28g" secondAttribute="trailing" constant="16" id="iDl-Rm-g4e">
+                                <variation key="heightClass=compact" constant="100"/>
+                            </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dnw-Fn-K8h" secondAttribute="bottom" constant="0.66666666666662877" id="wG3-Ae-Gdq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -331,7 +345,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="818.39999999999998" y="131.52709359605913"/>
+            <point key="canvasLocation" x="-1041" y="1233"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="1jb-lQ-QUI">
+            <objects>
+                <splitViewController id="VFl-1T-7Ha" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="detailViewController" id="7vh-BG-x3T"/>
+                        <segue destination="Yac-gb-7JX" kind="relationship" relationship="masterViewController" id="u5t-4z-c3e"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rWq-LS-9Qq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1944" y="132"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fc3-KF-g3N">
@@ -353,6 +380,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ac9-ij-eFm"/>
+        <segue reference="juW-to-UWy"/>
     </inferredMetricsTieBreakers>
 </document>
