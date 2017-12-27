@@ -30,7 +30,7 @@
                                             <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="animal" id="OzH-OA-VeE"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Chose Theme" id="OzH-OA-VeE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkQ-a8-brX">
@@ -41,7 +41,7 @@
                                             <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="face" id="ac9-ij-eFm"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Chose Theme" id="ac9-ij-eFm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Mv-2y-Fiu">
@@ -52,7 +52,7 @@
                                             <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="sport" id="k76-V4-p9H"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Chose Theme" id="k76-V4-p9H"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBV-82-2tr">
@@ -63,7 +63,7 @@
                                             <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="fruit" id="9cD-wb-sGP"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Chose Theme" id="9cD-wb-sGP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQn-uN-lBd">
@@ -74,7 +74,7 @@
                                             <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="tool" id="q8z-QD-JXw"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Chose Theme" id="q8z-QD-JXw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kY-SR-qqL">
@@ -85,7 +85,7 @@
                                             <color key="titleColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="halloween" id="cQU-Qs-Hdp"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="Chose Theme" id="cQU-Qs-Hdp"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -353,6 +353,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="k76-V4-p9H"/>
+        <segue reference="ac9-ij-eFm"/>
     </inferredMetricsTieBreakers>
 </document>
