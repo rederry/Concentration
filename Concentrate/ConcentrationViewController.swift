@@ -42,7 +42,7 @@ class ConcentrationViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        theme = ("👻🎃🍬👹💀😈🤢💩👾🙀", #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1))
+//        theme = ("👻🎃🍬👹💀😈🤢💩👾🙀", #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1))
     }
     
     var theme: (String, UIColor, UIColor)? {
@@ -113,17 +113,5 @@ class ConcentrationViewController: UIViewController {
         ]
         let attrsText = NSAttributedString(string: "Flip count: \(game.flipCount)", attributes: attrs)
         flipCoutLable.attributedText = attrsText
-    }
-}
-
-extension Int {
-    var arc4random: Int {
-        if self > 0 {
-            return Int(arc4random_uniform((UInt32(self))))
-        } else if self < 0 {
-            return -Int(arc4random_uniform((UInt32(abs(self)))))
-        } else {
-            return 0
-        }
     }
 }
