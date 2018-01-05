@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ConcentrationViewController: UIViewController {
+class ConcentrationViewController: VCLLoggingViewController {
+    
+    override var vclLoggingName: String {
+        return "ConcentrationGame"
+    }
     
     private lazy var game = Concentration(pairOfCards: pairOfCards) // UIViewController's model usually public
     

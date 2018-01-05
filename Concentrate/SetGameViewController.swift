@@ -8,7 +8,11 @@
 
 import UIKit
 
-class SetGameViewController: UIViewController, UIDynamicAnimatorDelegate {
+class SetGameViewController: VCLLoggingViewController, UIDynamicAnimatorDelegate {
+    
+    override var vclLoggingName: String {
+        return "SetGame"
+    }
     
     var game = SetGame()
 

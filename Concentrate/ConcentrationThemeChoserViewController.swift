@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ConcentrationThemeChoserViewController: UIViewController, UISplitViewControllerDelegate {
+class ConcentrationThemeChoserViewController: VCLLoggingViewController, UISplitViewControllerDelegate {
+    
+    override var vclLoggingName: String {
+        return "ThemeChoser"
+    }
     
     private var emojiThemes = [
         "animal" : ("🐶🐹🐰🦊🐻🐼🐯🐷🦄🦆", #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1), #colorLiteral(red: 0, green: 0.9914394021, blue: 1, alpha: 1)),
@@ -20,7 +24,7 @@ class ConcentrationThemeChoserViewController: UIViewController, UISplitViewContr
     ]
     
     private var splitDetailViewConcentrationController: ConcentrationViewController? {
-        return splitViewController?.viewControllers.last as? ConcentrationViewController
+        return (splitViewController?.viewControllers.last as? UINavigationController)?.visibleViewController as? ConcentrationViewController
     }
     
     private var lastSeguedConcentrationViewController: ConcentrationViewController?
@@ -30,10 +34,12 @@ class ConcentrationThemeChoserViewController: UIViewController, UISplitViewContr
     }
     
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        if splitDetailViewConcentrationController == nil {
-            return true
+        if let cvc = secondaryViewController as? ConcentrationViewController {
+            if cvc.theme == nil {
+                return false
+            }
         }
-        return false
+        return true
     }
     
     
@@ -41,10 +47,12 @@ class ConcentrationThemeChoserViewController: UIViewController, UISplitViewContr
         if let cvc = splitDetailViewConcentrationController {
             if let themeName = (sender as? UIButton)?.currentTitle {
                 cvc.theme = emojiThemes[themeName]
+                cvc.navigationItem.title = themeName
             }
         } else if let cvc = lastSeguedConcentrationViewController {
             if let themeName = (sender as? UIButton)?.currentTitle {
                 cvc.theme = emojiThemes[themeName]
+                cvc.navigationItem.title = themeName
                 navigationController?.pushViewController(cvc, animated: true)
             }
         } else {
@@ -56,9 +64,10 @@ class ConcentrationThemeChoserViewController: UIViewController, UISplitViewContr
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Chose Theme" {
             if let themeName = (sender as? UIButton)?.currentTitle {
-                if let desVC = segue.destination as? ConcentrationViewController {
-                    desVC.theme = emojiThemes[themeName]
-                    lastSeguedConcentrationViewController = desVC
+                if let cvc = (segue.destination as? UINavigationController)?.visibleViewController as? ConcentrationViewController {
+                    cvc.theme = emojiThemes[themeName]
+                    cvc.navigationItem.title = themeName
+                    lastSeguedConcentrationViewController = cvc
                 }
             }
         }
